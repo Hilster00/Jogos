@@ -1,14 +1,21 @@
 from random import choice
 import unicodedata
 
+def limpar(palavra):
+    palavra = unicodedata.normalize("NFD", palavra)        
+    palavra = palavra.encode("ascii", "ignore")
+    palavra = palavra.decode("utf-8")
+    palavra = palavra.lower()
+    return palavra
+    
 #bloco que inicializa as variaveis
 palavras=['Banana','Bacon','Cartão','Jogo','Pão','Bolo','Leão','Formiga','Kiwi']
-lista_letras=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+lista_letras=[chr(i) for i in range(ord('a'),ord('z')+1)]
 palavra=choice(palavras)
 resposta=''
 letras_chutadas=[]
 vidas=5
-
+    
 print("#"*len(palavra))
 
 #jogo
@@ -19,11 +26,7 @@ while resposta != palavra:
     chute=input('Digite o seu palpite:')
 
     #limpa acentuação
-    letra_limpa=chute
-    letra_limpa = unicodedata.normalize("NFD", letra_limpa)        
-    letra_limpa = letra_limpa.encode("ascii", "ignore")
-    letra_limpa = letra_limpa.decode("utf-8")
-    letra_limpa=letra_limpa.lower()
+    letra_limpa=limpar(chute)
     
     #verifica se o chute foi valido
     if letra_limpa in lista_letras:        
@@ -31,12 +34,8 @@ while resposta != palavra:
         if letra_limpa in letras_chutadas:
             print(f"Você já tinha escolhido '{letra_limpa}'")
         else:
-
             #limpa acentuação da palavra
-            palavra_limpa=palavra
-            palavra_limpa = unicodedata.normalize("NFD", palavra_limpa)        
-            palavra_limpa = palavra_limpa.encode("ascii", "ignore")
-            palavra_limpa = palavra_limpa.decode("utf-8")
+            palavra_limpa=limpar(palavra)
            
             if letra_limpa in palavra_limpa.lower():                    
                 print(f"Parabéns! '{letra_limpa}' está na palavra")           
@@ -57,20 +56,14 @@ while resposta != palavra:
     for letra in palavra:
             
         #limpa acentuação
-        letra_limpa=letra 
-        letra_limpa = unicodedata.normalize("NFD", letra_limpa)        
-        letra_limpa = letra_limpa.encode("ascii", "ignore")
-        letra_limpa = letra_limpa.decode("utf-8")
-            
+        letra_limpa = limpar(letra)
+        
         if letra_limpa.lower() in letras_chutadas:
-            print(f'{letra}',end='')
             resposta+=f'{letra}'
         else:
-            print('#',end='')
             resposta+='#'
-    print()
+    print(resposta)
 
 #mensagem de vitória    
 else:
     print('Parabéns! Você encontrou a palavra')
-        
