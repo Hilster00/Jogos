@@ -40,53 +40,51 @@ class jogo_velha:
             return self.__tabuleiro[y][x]
     
     def __verifica_vencedor(self):
-        linha=False
-        vencedor=None
-        for i in range(3):
-            for j in range(1,3):
-                if self.__tabuleiro[i][j] == self.__tabuleiro[i][j-1] != None:
-                    linha=True
-                    vencedor=self.__tabuleiro[i][j]
-                else:
-                    linha=False
-                    break
-        if linha == True:
-            return vencedor
-        del linha
-        coluna=False
-        for j in range(3):
-            for i in range(1,3):
-                if self.__tabuleiro[i][j] == self.__tabuleiro[i-1][j] != None:
-                    coluna=True
-                    vencedor=self.__tabuleiro[i][j]
-                else:
-                    coluna=False
-                    break 
-        if coluna == True:
-            return vencedor
-        del coluna
         
-        diagonal=False
-        for i in range(1,3):
-            if self.__tabuleiro[i][i] == self.__tabuleiro[i-1][i-1] != None:
-                diagonal=True
-                vencedor=self.__tabuleiro[i][i]
+        #verifica se os elementos da linha são iguais
+        for i in range(3):
+            jogador=self.__tabuleiro[i][0]
+            if jogador == None:
+                continue
+            for j in range(1,3):
+                if self.__tabuleiro[i][j] != jogador:
+                    break
             else:
-                diagonal=False
-                break 
-        if diagonal == True:
-            return vencedor
-            
-        for i in range(1,3):
-            if self.__tabuleiro[i][2-i] == self.__tabuleiro[i-1][1-i] != None:
-                diagonal=True
-                vencedor=self.__tabuleiro[i][i]
+                self.vencedor=jogador
+                return jogador
+        
+        #verifica se os elementos da colunas são iguais
+        for j in range(3):
+            jogador=self.__tabuleiro[0][j]
+            if jogador == None:
+                continue
+            for i in range(1,3):
+                if self.__tabuleiro[i][j] != jogador:
+                    break
             else:
-                diagonal=False
-                break 
-        if diagonal == True:
-            return vencedor
-            
+                self.vencedor=jogador
+                return jogador
+        
+        #diagonal principal
+        jogador=self.__tabuleiro[0][0]
+        if jogador != None:
+            for i in range(1,3):
+                if self.__tabuleiro[i][i] != jogador:
+                    break
+            else:
+                self.vencedor=jogador
+                return jogador
+                
+        #diagonal principal
+        jogador=self.__tabuleiro[0][2]
+        if jogador != None:
+            for i in range(1,3):
+                if self.__tabuleiro[i][2-i] != jogador:
+                    break
+            else:
+                self.vencedor=jogador
+                return jogador
+                    
         return None
         
     def __fazer_jogada(self,y,x):
