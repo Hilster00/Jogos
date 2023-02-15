@@ -35,7 +35,9 @@ class jogo_velha:
             y-=1
             return [self.__tabuleiro[y][i] for i in range(3)]
         else:
-            ...
+            x-=1
+            y-=1
+            return self.__tabuleiro[y][x]
     
     def __verifica_vencedor(self):
         linha=False
@@ -125,4 +127,3 @@ class jogo_velha:
                 raise TypeError("Y não é do tipo inteiro")
             else:
                 raise TypeError("X não é do tipo inteiro")
-                
