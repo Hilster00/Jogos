@@ -1,6 +1,6 @@
-# Calculadoras em Python
+# JOgos em Python
 
-Bem-vindo à coleção de calculadoras em Python! Este repositório contem as calculadoras que fiz ao longo do tempo, bem como suas melhorias e adições. Abaixo você encontrará uma visão geral das diferentes versões e suas características.
+Bem-vindo à coleção de jogos implementados em Python! Este repositório contem alguns jogos que fiz ao longo do tempo. Abaixo você encontrará a lista dos diferentes jogos, bem como uma breve descrição de cada.
 
 ---
 
