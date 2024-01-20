@@ -6,8 +6,8 @@
 
 ## Linguagens Implementadas
 
-<a href="https://github.com/Hilster00/Sorting-Algorithms/tree/main/C#" > C# </a>
+<a href="https://github.com/Hilster00/Jogos/tree/main/C%23" > C# </a>
 <br>
-<a href="https://github.com/Hilster00/Sorting-Algorithms/tree/main/Python" > Python </a>
+<a href="https://github.com/Hilster00/Jogos/tree/main/Python" > Python </a>
 <br>
-<a href="https://github.com/Hilster00/Sorting-Algorithms/tree/main/Java" > Java </a>
+<a href="https://github.com/Hilster00/Jogos/tree/main/Java" > Java </a>
