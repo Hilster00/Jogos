@@ -39,3 +39,9 @@ Testes de mecânicas para a implementação futura em jogos.
 
 Jogo da Torre de Hanoi.
 
+<H3 align="center">
+<a href="https://github.com/Hilster00/Jogos">
+Voltar Para Pasta Principal
+</a>
+</H3>
+
